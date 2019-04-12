@@ -23,7 +23,7 @@ namespace Algorithm {
       count = values.Length;
     }
 
-    public T this [int index] {
+    public T this[int index] {
       get => getNode(index).value;
       set => getNode(index).value = value;
     }
@@ -42,6 +42,7 @@ namespace Algorithm {
     public T delete(int index) {
       (Node prev, Node node) = getPrevAndNode(index);
       prev.next = node.next;
+      node.next = null;
       count--;
       if (node == bottom) {
         bottom = prev;
