@@ -14,5 +14,13 @@ namespace Algorithm {
       ArraySorter<int>.selectionSort(data, comparison);
       Assert.IsTrue(data.isSorted(comparison));
     }
+
+    [TestMethod]
+    public void insertionSort() {
+      int[] data = {3, 2, 1, 0, -1};
+      Comparison<int> comparison = Comparer<int>.Default.Compare;
+      ArraySorter<int>.insertionSort(data, comparison);
+      Assert.IsTrue(data.isSorted(comparison));
+    }
   }
 }

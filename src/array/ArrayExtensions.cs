@@ -5,13 +5,14 @@ namespace Algorithm {
 
   public static class ArrayExtensions {
 
-    private const int lowerBound = 0;
+    // There are arrays with non-zero lower bound. Here won't deal with that case.
+    private const int LOWER_BOUND = 0;
 
-    public static (T, int) min<T>(this T[] array, Comparison<T> comparison, int startIndex = lowerBound) {
-      if (startIndex >= lowerBound + array.Length) throw new IndexOutOfRangeException();
+    public static (T, int) min<T>(this T[] array, Comparison<T> comparison, int startIndex = LOWER_BOUND) {
+      if (startIndex >= LOWER_BOUND + array.Length) throw new IndexOutOfRangeException();
       int index = startIndex;
       T min = array[index];
-      for (int i = index + 1; i < lowerBound + array.Length; i++) {
+      for (int i = index + 1; i < LOWER_BOUND + array.Length; i++) {
         if (comparison(array[i], min) < 0) {
           index = i;
           min = array[index];
@@ -21,7 +22,7 @@ namespace Algorithm {
     }
 
     public static bool isSorted<T>(this T[] array, Comparison<T> comparison) {
-      for (int i = lowerBound + 1; i < lowerBound + array.Length; i++) {
+      for (int i = LOWER_BOUND + 1; i < LOWER_BOUND + array.Length; i++) {
         if (comparison(array[i], array[i - 1]) < 0) return false;
       }
       return true;
