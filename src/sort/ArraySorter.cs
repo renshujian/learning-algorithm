@@ -26,7 +26,7 @@ namespace Algorithm {
 
     private static void insertion(T[] array, Comparison<T> comparison) {
       int reverseFindInsertionIndex(T value, int lastIndex) {
-        for (int before = lastIndex; before >= 0; before--) {
+        for (int before = lastIndex; before > 0; before--) {
           if (comparison(array[before], value) <= 0) return before + 1;
         }
         return 0;
