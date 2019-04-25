@@ -7,7 +7,7 @@ namespace Algorithm {
     [Params(DataType.lowCardinality, DataType.highCardinality)]
     public DataType dataType {get; set;}
 
-    [Params(1000)]
+    [Params(1000, 10000)]
     public int dataLength {get; set;}
 
     public char[] data {get; set;}
@@ -34,6 +34,11 @@ namespace Algorithm {
     [Benchmark]
     public void insertionSort() {
       ArraySorter<char>.insertionSort(data);
+    }
+
+    [Benchmark]
+    public void shellSort() {
+      ArraySorter<char>.shellSort(data);
     }
   }
 }
