@@ -8,17 +8,24 @@ Intel Core i5-7200U CPU 2.50GHz (Kaby Lake), 1 CPU, 4 logical and 2 physical cor
 
 
 ```
-|        Method |        dataType | dataLength |          Mean |       Error |      StdDev |
-|-------------- |---------------- |----------- |--------------:|------------:|------------:|
-| **selectionSort** |  **lowCardinality** |       **1000** |   **1,313.09 us** |   **4.1910 us** |   **3.9202 us** |
-| insertionSort |  lowCardinality |       1000 |      12.45 us |   0.0247 us |   0.0231 us |
-|     shellSort |  lowCardinality |       1000 |      28.53 us |   0.0511 us |   0.0426 us |
-| **selectionSort** |  **lowCardinality** |      **10000** | **163,571.11 us** | **179.1481 us** | **167.5753 us** |
-| insertionSort |  lowCardinality |      10000 |     124.33 us |   0.1378 us |   0.1151 us |
-|     shellSort |  lowCardinality |      10000 |     392.52 us |   1.2176 us |   1.0794 us |
-| **selectionSort** | **highCardinality** |       **1000** |   **1,313.19 us** |   **3.4946 us** |   **3.2688 us** |
-| insertionSort | highCardinality |       1000 |      12.45 us |   0.0258 us |   0.0215 us |
-|     shellSort | highCardinality |       1000 |      28.56 us |   0.0768 us |   0.0681 us |
-| **selectionSort** | **highCardinality** |      **10000** | **163,705.91 us** | **326.7528 us** | **289.6578 us** |
-| insertionSort | highCardinality |      10000 |     124.16 us |   0.2276 us |   0.2017 us |
-|     shellSort | highCardinality |      10000 |     392.39 us |   0.6419 us |   0.6004 us |
+|            Method |        dataType | dataLength |          Mean |       Error |      StdDev |        Median | Ratio | RatioSD |
+|------------------ |---------------- |----------- |--------------:|------------:|------------:|--------------:|------:|--------:|
+|     **insertionSort** | **highCardinality** |       **1000** |      **5.326 us** |   **0.0202 us** |   **0.0189 us** |      **5.329 us** |  **1.00** |    **0.00** |
+|         shellSort | highCardinality |       1000 |     29.159 us |   0.2826 us |   0.2505 us |     29.102 us |  5.48 |    0.06 |
+|         mergeSort | highCardinality |       1000 |      6.418 us |   0.0340 us |   0.0318 us |      6.411 us |  1.21 |    0.01 |
+| parallelMergeSort | highCardinality |       1000 |     17.784 us |   0.3506 us |   0.6498 us |     17.565 us |  3.34 |    0.14 |
+|                   |                 |            |               |             |             |               |       |         |
+|     **insertionSort** | **highCardinality** |      **10000** |     **52.900 us** |   **0.2520 us** |   **0.2357 us** |     **52.916 us** |  **1.00** |    **0.00** |
+|         shellSort | highCardinality |      10000 |    425.175 us |   8.3018 us |   9.5604 us |    428.983 us |  8.01 |    0.21 |
+|         mergeSort | highCardinality |      10000 |     63.199 us |   0.7194 us |   0.6008 us |     63.031 us |  1.19 |    0.01 |
+| parallelMergeSort | highCardinality |      10000 |    125.425 us |   2.5054 us |   5.0611 us |    123.615 us |  2.39 |    0.12 |
+|                   |                 |            |               |             |             |               |       |         |
+|     **insertionSort** | **highCardinality** |     **100000** |    **582.640 us** |  **17.5245 us** |  **49.7140 us** |    **561.671 us** |  **1.00** |    **0.00** |
+|         shellSort | highCardinality |     100000 |  5,115.363 us |  21.4549 us |  20.0689 us |  5,117.011 us |  8.74 |    0.70 |
+|         mergeSort | highCardinality |     100000 |    621.108 us |   3.6868 us |   3.4486 us |    620.670 us |  1.06 |    0.09 |
+| parallelMergeSort | highCardinality |     100000 |    982.474 us |  19.1741 us |  28.6990 us |    971.616 us |  1.68 |    0.15 |
+|                   |                 |            |               |             |             |               |       |         |
+|     **insertionSort** | **highCardinality** |    **1000000** |  **5,622.000 us** | **112.3642 us** | **271.3721 us** |  **5,588.191 us** |  **1.00** |    **0.00** |
+|         shellSort | highCardinality |    1000000 | 62,419.998 us | 415.6462 us | 388.7958 us | 62,435.095 us | 11.08 |    0.56 |
+|         mergeSort | highCardinality |    1000000 |  6,413.018 us | 207.5539 us | 213.1426 us |  6,329.127 us |  1.13 |    0.06 |
+| parallelMergeSort | highCardinality |    1000000 | 13,260.728 us | 254.7598 us | 348.7181 us | 13,216.169 us |  2.33 |    0.14 |

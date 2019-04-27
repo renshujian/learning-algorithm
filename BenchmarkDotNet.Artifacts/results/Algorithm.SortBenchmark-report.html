@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>Algorithm.SortBenchmark-20190425-052819</title>
+<title>Algorithm.SortBenchmark-20190427-030110</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -22,20 +22,24 @@ Intel Core i5-7200U CPU 2.50GHz (Kaby Lake), 1 CPU, 4 logical and 2 physical cor
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th> Method</th><th> dataType</th><th>dataLength</th><th>   Mean</th><th>Error</th><th>StdDev</th>
+<thead><tr><th>     Method</th><th> dataType</th><th>dataLength</th><th>   Mean</th><th>Error</th><th>StdDev</th><th> Median</th><th>Ratio</th><th>RatioSD</th>
 </tr>
-</thead><tbody><tr><td>selectionSort</td><td>lowCardinality</td><td>1000</td><td>1,313.09 us</td><td>4.1910 us</td><td>3.9202 us</td>
-</tr><tr><td>insertionSort</td><td>lowCardinality</td><td>1000</td><td>12.45 us</td><td>0.0247 us</td><td>0.0231 us</td>
-</tr><tr><td>shellSort</td><td>lowCardinality</td><td>1000</td><td>28.53 us</td><td>0.0511 us</td><td>0.0426 us</td>
-</tr><tr><td>selectionSort</td><td>lowCardinality</td><td>10000</td><td>163,571.11 us</td><td>179.1481 us</td><td>167.5753 us</td>
-</tr><tr><td>insertionSort</td><td>lowCardinality</td><td>10000</td><td>124.33 us</td><td>0.1378 us</td><td>0.1151 us</td>
-</tr><tr><td>shellSort</td><td>lowCardinality</td><td>10000</td><td>392.52 us</td><td>1.2176 us</td><td>1.0794 us</td>
-</tr><tr><td>selectionSort</td><td>highCardinality</td><td>1000</td><td>1,313.19 us</td><td>3.4946 us</td><td>3.2688 us</td>
-</tr><tr><td>insertionSort</td><td>highCardinality</td><td>1000</td><td>12.45 us</td><td>0.0258 us</td><td>0.0215 us</td>
-</tr><tr><td>shellSort</td><td>highCardinality</td><td>1000</td><td>28.56 us</td><td>0.0768 us</td><td>0.0681 us</td>
-</tr><tr><td>selectionSort</td><td>highCardinality</td><td>10000</td><td>163,705.91 us</td><td>326.7528 us</td><td>289.6578 us</td>
-</tr><tr><td>insertionSort</td><td>highCardinality</td><td>10000</td><td>124.16 us</td><td>0.2276 us</td><td>0.2017 us</td>
-</tr><tr><td>shellSort</td><td>highCardinality</td><td>10000</td><td>392.39 us</td><td>0.6419 us</td><td>0.6004 us</td>
+</thead><tbody><tr><td>insertionSort</td><td>highCardinality</td><td>1000</td><td>5.326 us</td><td>0.0202 us</td><td>0.0189 us</td><td>5.329 us</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>shellSort</td><td>highCardinality</td><td>1000</td><td>29.159 us</td><td>0.2826 us</td><td>0.2505 us</td><td>29.102 us</td><td>5.48</td><td>0.06</td>
+</tr><tr><td>mergeSort</td><td>highCardinality</td><td>1000</td><td>6.418 us</td><td>0.0340 us</td><td>0.0318 us</td><td>6.411 us</td><td>1.21</td><td>0.01</td>
+</tr><tr><td>parallelMergeSort</td><td>highCardinality</td><td>1000</td><td>17.784 us</td><td>0.3506 us</td><td>0.6498 us</td><td>17.565 us</td><td>3.34</td><td>0.14</td>
+</tr><tr><td>insertionSort</td><td>highCardinality</td><td>10000</td><td>52.900 us</td><td>0.2520 us</td><td>0.2357 us</td><td>52.916 us</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>shellSort</td><td>highCardinality</td><td>10000</td><td>425.175 us</td><td>8.3018 us</td><td>9.5604 us</td><td>428.983 us</td><td>8.01</td><td>0.21</td>
+</tr><tr><td>mergeSort</td><td>highCardinality</td><td>10000</td><td>63.199 us</td><td>0.7194 us</td><td>0.6008 us</td><td>63.031 us</td><td>1.19</td><td>0.01</td>
+</tr><tr><td>parallelMergeSort</td><td>highCardinality</td><td>10000</td><td>125.425 us</td><td>2.5054 us</td><td>5.0611 us</td><td>123.615 us</td><td>2.39</td><td>0.12</td>
+</tr><tr><td>insertionSort</td><td>highCardinality</td><td>100000</td><td>582.640 us</td><td>17.5245 us</td><td>49.7140 us</td><td>561.671 us</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>shellSort</td><td>highCardinality</td><td>100000</td><td>5,115.363 us</td><td>21.4549 us</td><td>20.0689 us</td><td>5,117.011 us</td><td>8.74</td><td>0.70</td>
+</tr><tr><td>mergeSort</td><td>highCardinality</td><td>100000</td><td>621.108 us</td><td>3.6868 us</td><td>3.4486 us</td><td>620.670 us</td><td>1.06</td><td>0.09</td>
+</tr><tr><td>parallelMergeSort</td><td>highCardinality</td><td>100000</td><td>982.474 us</td><td>19.1741 us</td><td>28.6990 us</td><td>971.616 us</td><td>1.68</td><td>0.15</td>
+</tr><tr><td>insertionSort</td><td>highCardinality</td><td>1000000</td><td>5,622.000 us</td><td>112.3642 us</td><td>271.3721 us</td><td>5,588.191 us</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>shellSort</td><td>highCardinality</td><td>1000000</td><td>62,419.998 us</td><td>415.6462 us</td><td>388.7958 us</td><td>62,435.095 us</td><td>11.08</td><td>0.56</td>
+</tr><tr><td>mergeSort</td><td>highCardinality</td><td>1000000</td><td>6,413.018 us</td><td>207.5539 us</td><td>213.1426 us</td><td>6,329.127 us</td><td>1.13</td><td>0.06</td>
+</tr><tr><td>parallelMergeSort</td><td>highCardinality</td><td>1000000</td><td>13,260.728 us</td><td>254.7598 us</td><td>348.7181 us</td><td>13,216.169 us</td><td>2.33</td><td>0.14</td>
 </tr></tbody></table>
 </body>
 </html>
