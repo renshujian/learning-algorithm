@@ -43,6 +43,9 @@ namespace Algorithm {
 
     [Benchmark]
     public void quickSort() => ArraySorter<char>.quickSort(data);
+
+    [Benchmark]
+    public void quick3waySort() => ArraySorter<char>.quick3waySort(data);
   }
 }
 

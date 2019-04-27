@@ -26,6 +26,9 @@ namespace Algorithm {
     public static void quickSort(T[] array, Comparison<T> comparison) => sort(quick, array, comparison);
     public static void quickSort(T[] array) => sort(quick, array, null);
 
+    public static void quick3waySort(T[] array, Comparison<T> comparison) => sort(quick3way, array, comparison);
+    public static void quick3waySort(T[] array) => sort(quick3way, array, null);
+
     private static void sort(Action<T[], Comparison<T>> strategy, T[] array, Comparison<T> comparison) {
       if (array == null) throw new ArgumentNullException();
       if (array.Length <= 1) return;
@@ -193,7 +196,7 @@ namespace Algorithm {
         // right = left - 1
         if (left > right) {
           // array[left] >= sample, array[right] <= sample
-          (array[lo], array[right]) = (array[right], sample);
+          array.exchange(lo, right);
           break;
         }
 
@@ -201,7 +204,7 @@ namespace Algorithm {
           // array[left] == array[right] == sample
           break;
         }
-        (array[left], array[right]) = (array[right], array[left]);
+        array.exchange(left, right);
       }
 
       quick(array, comparison, lo, right);
@@ -209,5 +212,53 @@ namespace Algorithm {
     }
 
     private static void quick(T[] array, Comparison<T> comparison) => quick(array, comparison, 0, array.Length);
+
+    private static void quick3way(T[] array, Comparison<T> comparison, int lo, int hi) {
+      int length = hi - lo;
+      if (length <= INSERTION_SORT_LENGTH) {
+        insertion(array, comparison, lo, hi);
+        return;
+      }
+
+      T sample;
+      // 3 sampling
+      {
+        int mid = (lo + hi) / 2;
+        T first = array[lo];
+        T middle = array[mid];
+        T last = array[hi - 1];
+        T[] samples = {first, middle, last};
+        insertion(samples, comparison);
+        sample = samples[1];
+        if (sample.Equals(middle)) {
+          array[lo] = middle;
+          array[mid] = first;
+        } else if (sample.Equals(last)) {
+          array[lo] = last;
+          array[hi - 1] = first;
+        }
+      }
+
+      int lt = lo;
+      int i = lo + 1;
+      int gt = hi;
+      while (i < gt) {
+        int cmp = comparison(array[i], sample);
+        if (cmp < 0) {
+          array.exchange(lt++, i++);
+        } else if (cmp > 0) {
+          array.exchange(--gt, i);
+        } else {
+          i++;
+        }
+      }
+
+      quick3way(array, comparison, lo, lt);
+      quick3way(array, comparison, gt, hi);
+    }
+
+    private static void quick3way(T[] array, Comparison<T> comparison) {
+      quick3way(array, comparison, 0, array.Length);
+    }
   }
 }

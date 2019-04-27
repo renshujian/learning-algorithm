@@ -71,5 +71,12 @@ namespace Algorithm {
       ArraySorter<int>.quickSort(data, comparison);
       Assert.IsTrue(data.isSorted(comparison));
     }
+
+    [TestMethod]
+    public void quick3waySort() {
+      int[] data = datasource;
+      ArraySorter<int>.quick3waySort(data, comparison);
+      Assert.IsTrue(data.isSorted(comparison));
+    }
   }
 }

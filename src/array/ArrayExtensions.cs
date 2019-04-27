@@ -21,11 +21,26 @@ namespace Algorithm {
       return (min, index);
     }
 
+    public static void exchange<T>(this T[] array, int i, int j) {
+      T t = array[i];
+      array[i] = array[j];
+      array[j] = t;
+    }
+
     public static bool isSorted<T>(this T[] array, Comparison<T> comparison) {
       for (int i = LOWER_BOUND + 1; i < LOWER_BOUND + array.Length; i++) {
         if (comparison(array[i], array[i - 1]) < 0) return false;
       }
       return true;
+    }
+
+    public static string join<T>(this T[] array, string seperator = ", ") {
+      if (array.Length == 0) return "";
+      string result = array[LOWER_BOUND].ToString();
+      for (int i = LOWER_BOUND + 1; i < LOWER_BOUND + array.Length; i++) {
+        result = result + seperator + array[i].ToString();
+      }
+      return result;
     }
   }
 }
