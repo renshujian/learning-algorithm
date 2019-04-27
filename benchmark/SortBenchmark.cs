@@ -4,10 +4,10 @@ namespace Algorithm {
 
   public class SortBenchmark {
 
-    [Params(DataType.highCardinality)]
+    [Params(DataType.lowCardinality, DataType.highCardinality)]
     public DataType dataType {get; set;}
 
-    [Params(1000, 10000, 100000, 1000000)]
+    [Params(1000, 10000, 100000)]
     public int dataLength {get; set;}
 
     public char[] data {get; set;}
@@ -38,8 +38,11 @@ namespace Algorithm {
     [Benchmark]
     public void mergeSort() => ArraySorter<char>.mergeSort(data);
 
-    [Benchmark]
+    // [Benchmark]
     public void parallelMergeSort() => ArraySorter<char>.parallelMergeSort(data);
+
+    [Benchmark]
+    public void quickSort() => ArraySorter<char>.quickSort(data);
   }
 }
 

@@ -64,5 +64,12 @@ namespace Algorithm {
       ArraySorter<int>.parallelMergeSort(data, comparison);
       Assert.IsTrue(data.isSorted(comparison));
     }
+
+    [TestMethod]
+    public void quickSort() {
+      int[] data = datasource;
+      ArraySorter<int>.quickSort(data, comparison);
+      Assert.IsTrue(data.isSorted(comparison));
+    }
   }
 }
