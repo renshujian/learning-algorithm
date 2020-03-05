@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>Algorithm.SortBenchmark-20200305-202957</title>
+<title>Algorithm.SortBenchmark-20200305-213424</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -22,20 +22,20 @@ Intel Core i5-7200U CPU 2.50GHz (Kaby Lake), 1 CPU, 4 logical and 2 physical cor
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th> Method</th><th> dataType</th><th>dataLength</th><th> Mean</th><th>Error</th><th>StdDev</th><th>Median</th>
+<thead><tr><th> Method</th><th> dataType</th><th>dataLength</th><th>   Mean</th><th>  Error</th><th> StdDev</th><th> Median</th><th>Ratio</th><th>RatioSD</th>
 </tr>
-</thead><tbody><tr><td>quickSort</td><td>lowCardinality</td><td>1000</td><td>33.14 us</td><td>0.527 us</td><td>0.440 us</td><td>33.33 us</td>
-</tr><tr><td>quick3waySort</td><td>lowCardinality</td><td>1000</td><td>14.42 us</td><td>0.421 us</td><td>0.643 us</td><td>14.16 us</td>
-</tr><tr><td>quickSort</td><td>lowCardinality</td><td>10000</td><td>455.91 us</td><td>11.003 us</td><td>17.452 us</td><td>447.52 us</td>
-</tr><tr><td>quick3waySort</td><td>lowCardinality</td><td>10000</td><td>130.72 us</td><td>1.011 us</td><td>0.896 us</td><td>130.71 us</td>
-</tr><tr><td>quickSort</td><td>lowCardinality</td><td>100000</td><td>6,213.75 us</td><td>40.256 us</td><td>37.656 us</td><td>6,193.34 us</td>
-</tr><tr><td>quick3waySort</td><td>lowCardinality</td><td>100000</td><td>1,367.01 us</td><td>11.767 us</td><td>10.431 us</td><td>1,368.08 us</td>
-</tr><tr><td>quickSort</td><td>highCardinality</td><td>1000</td><td>30.64 us</td><td>0.939 us</td><td>1.118 us</td><td>30.06 us</td>
-</tr><tr><td>quick3waySort</td><td>highCardinality</td><td>1000</td><td>34.67 us</td><td>0.235 us</td><td>0.220 us</td><td>34.57 us</td>
-</tr><tr><td>quickSort</td><td>highCardinality</td><td>10000</td><td>443.00 us</td><td>5.500 us</td><td>4.593 us</td><td>441.31 us</td>
-</tr><tr><td>quick3waySort</td><td>highCardinality</td><td>10000</td><td>402.55 us</td><td>3.085 us</td><td>2.886 us</td><td>401.67 us</td>
-</tr><tr><td>quickSort</td><td>highCardinality</td><td>100000</td><td>6,363.97 us</td><td>49.872 us</td><td>57.433 us</td><td>6,343.27 us</td>
-</tr><tr><td>quick3waySort</td><td>highCardinality</td><td>100000</td><td>4,350.58 us</td><td>28.032 us</td><td>24.850 us</td><td>4,361.32 us</td>
+</thead><tbody><tr><td>insertionSort</td><td>highCardinality</td><td>1000</td><td>5.511 us</td><td>0.1095 us</td><td>0.2161 us</td><td>5.373 us</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>shellSort</td><td>highCardinality</td><td>1000</td><td>29.752 us</td><td>0.7835 us</td><td>1.1484 us</td><td>29.206 us</td><td>5.37</td><td>0.17</td>
+</tr><tr><td>mergeSort</td><td>highCardinality</td><td>1000</td><td>6.189 us</td><td>0.0512 us</td><td>0.0427 us</td><td>6.179 us</td><td>1.09</td><td>0.04</td>
+</tr><tr><td>insertionSort</td><td>highCardinality</td><td>10000</td><td>52.889 us</td><td>0.3433 us</td><td>0.2866 us</td><td>52.778 us</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>shellSort</td><td>highCardinality</td><td>10000</td><td>396.333 us</td><td>1.9786 us</td><td>1.8508 us</td><td>395.861 us</td><td>7.50</td><td>0.05</td>
+</tr><tr><td>mergeSort</td><td>highCardinality</td><td>10000</td><td>56.440 us</td><td>0.5427 us</td><td>0.5076 us</td><td>56.358 us</td><td>1.07</td><td>0.01</td>
+</tr><tr><td>insertionSort</td><td>highCardinality</td><td>100000</td><td>602.556 us</td><td>18.4632 us</td><td>53.5650 us</td><td>593.806 us</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>shellSort</td><td>highCardinality</td><td>100000</td><td>5,113.471 us</td><td>40.7780 us</td><td>38.1437 us</td><td>5,105.936 us</td><td>8.78</td><td>0.73</td>
+</tr><tr><td>mergeSort</td><td>highCardinality</td><td>100000</td><td>562.512 us</td><td>4.3410 us</td><td>4.0606 us</td><td>560.309 us</td><td>0.97</td><td>0.08</td>
+</tr><tr><td>insertionSort</td><td>highCardinality</td><td>1000000</td><td>5,836.219 us</td><td>154.9308 us</td><td>439.5129 us</td><td>5,722.153 us</td><td>1.00</td><td>0.00</td>
+</tr><tr><td>shellSort</td><td>highCardinality</td><td>1000000</td><td>63,443.379 us</td><td>1,432.3363 us</td><td>1,862.4418 us</td><td>62,490.022 us</td><td>10.95</td><td>0.88</td>
+</tr><tr><td>mergeSort</td><td>highCardinality</td><td>1000000</td><td>5,907.548 us</td><td>116.7934 us</td><td>219.3663 us</td><td>5,846.091 us</td><td>1.03</td><td>0.08</td>
 </tr></tbody></table>
 </body>
 </html>
