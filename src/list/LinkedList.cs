@@ -1,24 +1,23 @@
 using System;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Algorithm {
 
   public class LinkedList<T> {
 
     class Node {
-      [AllowNull]
-      public T value {get; set;} = default;
+      public T value {get; set;}
       public Node next {get; set;} = default!;
+      public Node(T value) => this.value = value;
     }
 
-    Node sentinel = new Node();
+    Node sentinel = new Node(default!);
     Node bottom;
     public int count {get; private set;}
 
     public LinkedList(params T[] values) {
       Node current = sentinel;
       foreach (T value in values) {
-        current.next = new Node{value = value};
+        current.next = new Node(value);
         current = current.next;
       }
       bottom = current;
@@ -34,7 +33,7 @@ namespace Algorithm {
     public void insert(int index, T value) {
       Node prev = getPrev(index);
       Node next = prev.next;
-      prev.next = new Node{value = value};
+      prev.next = new Node(value);
       prev.next.next = next;
       count++;
       if (prev == bottom) {
