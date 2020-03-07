@@ -29,7 +29,7 @@ namespace Algorithm {
     public static void quick3waySort(T[] array, Comparison<T> comparison) => sort(quick3way, array, comparison);
     public static void quick3waySort(T[] array) => sort(quick3way, array, null);
 
-    private static void sort(Action<T[], Comparison<T>> strategy, T[] array, Comparison<T> comparison) {
+    private static void sort(Action<T[], Comparison<T>> strategy, T[] array, Comparison<T>? comparison) {
       if (array == null) throw new ArgumentNullException();
       if (array.Length <= 1) return;
       strategy(array, comparison ?? Comparer<T>.Default.Compare);
@@ -174,10 +174,10 @@ namespace Algorithm {
         T[] samples = {first, middle, last};
         insertion(samples, comparison);
         sample = samples[1];
-        if (sample.Equals(middle)) {
+        if (Equals(sample, middle)) {
           array[lo] = middle;
           array[mid] = first;
-        } else if (sample.Equals(last)) {
+        } else if (Equals(sample, last)) {
           array[lo] = last;
           array[hi - 1] = first;
         }
@@ -230,10 +230,10 @@ namespace Algorithm {
         T[] samples = {first, middle, last};
         insertion(samples, comparison);
         sample = samples[1];
-        if (sample.Equals(middle)) {
+        if (Equals(sample, middle)) {
           array[lo] = middle;
           array[mid] = first;
-        } else if (sample.Equals(last)) {
+        } else if (Equals(sample, last)) {
           array[lo] = last;
           array[hi - 1] = first;
         }

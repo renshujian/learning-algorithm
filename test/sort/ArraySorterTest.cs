@@ -8,7 +8,7 @@ namespace Algorithm {
   [TestClass]
   public class ArraySorterTest {
 
-    private int[] _datasource;
+    private int[]? _datasource;
 
     public int[] datasource {
       get {

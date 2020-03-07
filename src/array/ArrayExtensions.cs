@@ -36,9 +36,9 @@ namespace Algorithm {
 
     public static string join<T>(this T[] array, string seperator = ", ") {
       if (array.Length == 0) return "";
-      string result = array[LOWER_BOUND].ToString();
+      string result = array[LOWER_BOUND]?.ToString() ?? "null";
       for (int i = LOWER_BOUND + 1; i < LOWER_BOUND + array.Length; i++) {
-        result = result + seperator + array[i].ToString();
+        result = result + seperator + array[i]?.ToString() ?? "null";
       }
       return result;
     }

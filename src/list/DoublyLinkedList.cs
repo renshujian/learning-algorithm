@@ -1,18 +1,15 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Algorithm {
 
   public class DoublyLinkedList<T> {
 
     class Node {
-      public T value {get; set;}
-      public Node next {get; set;}
-      public Node prev {get; set;}
-      internal T destory() {
-        next = null;
-        prev = null;
-        return value;
-      }
+      [AllowNull]
+      public T value {get; set;} = default;
+      public Node next {get; set;} = default!;
+      public Node prev {get; set;} = default!;
     }
 
     Node sentinel = new Node();
@@ -20,7 +17,7 @@ namespace Algorithm {
 
     public DoublyLinkedList(params T[] values) {
       Node current = sentinel;
-      Node prev = null;
+      Node prev = current;
       foreach (T value in values) {
         prev = current;
         current = new Node{value = value};
@@ -55,7 +52,7 @@ namespace Algorithm {
       prev.next = next;
       next.prev = prev;
       count--;
-      return node.destory();
+      return node.value;
     }
 
     public void lpush(T value) => insert(0, value);

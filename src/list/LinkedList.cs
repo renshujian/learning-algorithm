@@ -1,12 +1,14 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Algorithm {
 
   public class LinkedList<T> {
 
     class Node {
-      public T value {get; set;}
-      public Node next {get; set;}
+      [AllowNull]
+      public T value {get; set;} = default;
+      public Node next {get; set;} = default!;
     }
 
     Node sentinel = new Node();
@@ -20,6 +22,7 @@ namespace Algorithm {
         current = current.next;
       }
       bottom = current;
+      bottom.next = sentinel;
       count = values.Length;
     }
 
@@ -42,7 +45,6 @@ namespace Algorithm {
     public T delete(int index) {
       (Node prev, Node node) = getPrevAndNode(index);
       prev.next = node.next;
-      node.next = null;
       count--;
       if (node == bottom) {
         bottom = prev;

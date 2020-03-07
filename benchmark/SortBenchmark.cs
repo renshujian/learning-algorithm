@@ -10,7 +10,7 @@ namespace Algorithm {
     [Params(1000, 10000, 100000)]
     public int dataLength {get; set;}
 
-    public char[] data {get; set;}
+    public char[] data {get; set;} = default!;
 
     [GlobalSetup]
     public void setup() {
